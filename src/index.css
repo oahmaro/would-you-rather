@@ -1,5 +1,92 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background-color: #1D1F23;
+  color: #9E9D9E; 
+}
+
+p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.signin-form {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  border: 1px solid #191919;
+  box-shadow: 0px 1px 20px 2px rgba(0, 0, 0, 0.25)
+}
+
+.signin-header {
+  position: relative;
+  background-color: #24292E;
+  width: 360px;
+  height: 35px;
+  border-radius: 15px 15px 0 0;
+  
+}
+
+.signin-body {
+  background-color: #2A2F33;
+  width: 360px;
+  height: 180px;
+  border-radius: 0 0 15px 15px;
+}
+
+.signin-title {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  user-select: none;
+}
+
+.sigin-body-p {
+  display: block;
+  font-size: 14px;
+  padding: 20px;
+  user-select: none;
+}
+
+.profile-pic {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.signin-body-form {
+  padding: 10px 0 0 35px;
+}
+
+.sign-in-button {
+  color: #FFFFFF;
+  background-color: #26AA91;
+  height: 21px;
+  width: 68px;
+  font-size: 12px;
+  border-radius: 2px;
+  border-style: none;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 0px 1px 25px 2px rgba(0, 0, 0, 0.15); 
+  margin-top: 30px;
+  margin-left: 265px;
+}
+
+.login-user-select {
+  position: absolute;
+  top: 110px;
+  background-color: #2A2F33;
+  border: none;
+  color: #9E9D9E;
+  margin-left: 20px;
 }
