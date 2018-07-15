@@ -17,13 +17,13 @@ class Poll extends Component {
                 <p className='form-title'>Would You Rather</p>
             </div>
             <div className='form-body'>
-                <p className='options'>{optionOne.text}</p>
+                <p className='optionOne'>{optionOne.text}</p>
                 <div className='or-seperator'>
                     <hr/>
                     <p className='inline-p'>OR</p>
                     <hr/>
                 </div>
-                <p className='options'>{optionTwo.text}</p>
+                <p className='optionTwo'>{optionTwo.text}</p>
             </div>
         </div>
         )

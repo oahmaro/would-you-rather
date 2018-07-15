@@ -1,15 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import Poll from './Poll'
+import TitleBar from './TitleBar'
 
 class Dashboard extends Component {
     render () {
         return (
-            <div className='question-form margin'>
-                {this.props.questionIds.map((id) => (
-                    <Poll key={id} id={id}/> 
-                ))}
-            </div>    
+            <Fragment>
+                <TitleBar />
+                <div className='question-form margin'>
+                    {this.props.questionIds.map((id) => (
+                        <Poll key={id} id={id}/> 
+                    ))}
+                </div>                
+            </Fragment>
         )
     }
 }

@@ -11,6 +11,14 @@ p {
   font-size: 15px;
 }
 
+.form {
+  width: 400px;
+  height:auto;
+  border-radius: 15px;
+  border: 1px solid #191919;
+  box-shadow: 0px 1px 20px 2px rgba(0, 0, 0, 0.25)
+}
+
 .signin-form {
   position: absolute;
   margin: 0;
@@ -21,14 +29,6 @@ p {
 
 .question-form {
   display: flex;
-}
-
-.form {
-  width: 400px;
-  height:250px;
-  border-radius: 15px;
-  border: 1px solid #191919;
-  box-shadow: 0px 1px 20px 2px rgba(0, 0, 0, 0.25)
 }
 
 .form-header {
@@ -43,7 +43,7 @@ p {
 .form-body {
   background-color: #2A2F33;
   width: 100%;
-  height: 215px;
+  height: 85%;
   border-radius: 0 0 15px 15px;
 }
 
@@ -106,7 +106,7 @@ hr {
   display: inline-block;
   width: 40%;
   margin: 0;
-  border: 0.5px solid rgb(97, 97, 97);
+  border: 0.5px solid rgb(80, 80, 80);
   user-select: none;
 }
 
@@ -125,13 +125,49 @@ hr {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
-.options {
+.optionOne {
   padding: 20px;
+  height: auto;
+}
+
+.optionTwo {
+  padding: 20px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .margin {
   margin: 10px;
+}
+
+.active {
+  color: #CCCCCB
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+}
+
+.nav li {
+  padding: 10px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.title-bar {
+  display: flex;
+  background-color: #24292E;
+  margin: 0;
+}
+
+.nav-account {
+  margin-left: auto;
+  margin-right: 10px;
 }
