@@ -1,31 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Login from '../components/Login'
 import { connect } from 'react-redux'
-import { setAuthedUser } from '../actions/authedUser'
+import { handleInitialUsers } from '../actions/shared'
 import Dashboard from './Dashboard'
 
 class App extends Component {
   componentDidMount() {
-    const AUTHED_ID = null;
-    this.props.dispatch((setAuthedUser(AUTHED_ID)))
+    this.props.dispatch((handleInitialUsers()))
   }
 
   render() {
     return (
-      <div>
-        {this.props.authedUser === null
+      <Fragment>
+        { 
+          this.props.authedUser === null
           ? <Login />
           : <Dashboard />
         }
-      </div>
+      </Fragment>
     );
   }
 }
 
 function mapStateToProps ({ authedUser }) {
   return {
-    authedUser,
-    loading: authedUser === null
+    authedUser
   }
 }
 

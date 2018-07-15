@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
 
 class Account extends Component {
     render () {
+        const { authedUser } = this.props
         return (
             <Fragment>
                 <ul className='nav nav-account'>
@@ -11,11 +13,11 @@ class Account extends Component {
                     <li className='padding-left'>
                         <img 
                                     src='https://placeimg.com/100/100/any'
-                                    alt="Avatar of oahmaro"
+                                    alt={`Avatar of ${authedUser}`}
                                     className='profile-pic'/>
                     </li>
                     <li className='padding-zero'>
-                        oahmaro
+                        {authedUser}
                     </li>
                 </ul>
             </Fragment>
@@ -23,4 +25,10 @@ class Account extends Component {
     }
 }
 
-export default Account
+function mapStateToProps({ authedUser }) {
+    return {
+        authedUser
+    }
+}
+
+export default connect(mapStateToProps)(Account)
