@@ -8,7 +8,7 @@ body {
 
 p {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .signin-form {
@@ -17,28 +17,37 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.question-form {
+  display: flex;
+}
+
+.form {
+  width: 400px;
+  height:250px;
   border-radius: 15px;
   border: 1px solid #191919;
   box-shadow: 0px 1px 20px 2px rgba(0, 0, 0, 0.25)
 }
 
-.signin-header {
+.form-header {
   position: relative;
   background-color: #24292E;
-  width: 360px;
+  width: 100%;
   height: 35px;
   border-radius: 15px 15px 0 0;
   
 }
 
-.signin-body {
+.form-body {
   background-color: #2A2F33;
-  width: 360px;
-  height: 180px;
+  width: 100%;
+  height: 215px;
   border-radius: 0 0 15px 15px;
 }
 
-.signin-title {
+.form-title {
   position: absolute;
   margin: 0;
   top: 50%;
@@ -89,4 +98,40 @@ p {
   border: none;
   color: #9E9D9E;
   margin-left: 20px;
+}
+
+
+hr {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 40%;
+  margin: 0;
+  border: 0.5px solid rgb(97, 97, 97);
+  user-select: none;
+}
+
+.inline-p {
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: inline-block;
+  color: #CCCCCB;
+  user-select: none;
+  width: 20%;
+}
+
+.or-seperator {
+  box-sizing: border-box;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px 0;
+}
+
+.options {
+  padding: 20px;
+}
+
+.margin {
+  margin: 10px;
 }

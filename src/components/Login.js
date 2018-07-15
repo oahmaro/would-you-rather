@@ -5,11 +5,11 @@ import { iconLib } from '../iconLib'
 class Login extends Component {
     render () {
         return (
-            <div className='signin-form'>
-                <div className='signin-header'>
-                    <p className='signin-title'>Would You Rather - login</p>
+            <div className='form signin-form'>
+                <div className='form-header'>
+                    <p className='form-title'>Would You Rather - login</p>
                 </div>
-                <div className='signin-body'>
+                <div className='form-body'>
                     <form action="">
                         <label className='sigin-body-p'>Select a user: </label>
                         <div className='signin-body-form'>
