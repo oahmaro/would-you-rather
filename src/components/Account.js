@@ -5,10 +5,16 @@ class Account extends Component {
         return (
             <Fragment>
                 <ul className='nav nav-account'>
-                    <li activeClassName='active'>
+                    <li>
                         Logout
                     </li>
-                    <li activeClassName='active'>
+                    <li className='padding-left'>
+                        <img 
+                                    src='https://placeimg.com/100/100/any'
+                                    alt="Avatar of oahmaro"
+                                    className='profile-pic'/>
+                    </li>
+                    <li className='padding-zero'>
                         oahmaro
                     </li>
                 </ul>

@@ -66,8 +66,8 @@ p {
 
 .profile-pic {
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   user-select: none;
 }
@@ -147,6 +147,14 @@ hr {
   margin: 10px;
 }
 
+.padding-left {
+  padding-left: 10px;
+}
+
+.padding-zero {
+  padding-left: 0 !important;
+}
+
 .active {
   color: #CCCCCB
 }
@@ -164,12 +172,14 @@ hr {
   user-select: none;
   cursor: pointer;
   color: #808080;
+  line-height: 1.5;
 }
 
 .title-bar {
   display: flex;
   background-color: #24292E;
   margin: 0;
+  height: 40px;
 }
 
 .nav-account {
@@ -190,3 +200,5 @@ hr {
   cursor: pointer;
   color: #808080;
 }
+
+

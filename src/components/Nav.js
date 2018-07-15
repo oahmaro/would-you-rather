@@ -5,13 +5,13 @@ class Nav extends Component {
         return (
             <Fragment>
                 <ul className='nav'>
-                    <li activeClassName='active'>
+                    <li>
                         Home
                     </li>
-                    <li activeClassName='active'>
+                    <li>
                         Leaderboard
                     </li>
-                    <li activeClassName='active'>
+                    <li>
                         Add Poll
                     </li>
                 </ul>

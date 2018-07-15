@@ -4,10 +4,10 @@ class Toggler extends Component {
     render () {
         return (
                 <ul className='toggler'>
-                    <li activeClassName='active'>
+                    <li>
                         Unanswered
                     </li>
-                    <li activeClassName='active'>
+                    <li>
                         Answered
                     </li>
                 </ul>

@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-// import Login from '../components/Login'
+import Login from '../components/Login'
 import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
+import { setAuthedUser } from '../actions/authedUser'
 import Dashboard from './Dashboard'
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch((handleInitialData()))
+    const AUTHED_ID = null;
+    this.props.dispatch((setAuthedUser(AUTHED_ID)))
   }
 
   render() {
     return (
       <div>
-        {this.props.loading === true
-          ? null
+        {this.props.authedUser === null
+          ? <Login />
           : <Dashboard />
         }
       </div>
@@ -23,6 +24,7 @@ class App extends Component {
 
 function mapStateToProps ({ authedUser }) {
   return {
+    authedUser,
     loading: authedUser === null
   }
 }

@@ -22,7 +22,7 @@ class Login extends Component {
                             </select>                        
                         </div>
 
-                        <button className='sign-in-button'>SIGN IN</button>
+                        <button className='sign-in-button' onClick={this.handleLoggin}>SIGN IN</button>
                     </form>
                 </div>
             </div>
