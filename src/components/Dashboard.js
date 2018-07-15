@@ -4,11 +4,10 @@ import Poll from './Poll'
 
 class Dashboard extends Component {
     render () {
-        console.log(this.props)
         return (
             <div className='question-form margin'>
                 {this.props.questionIds.map((id) => (
-                    <Poll key={id}/> 
+                    <Poll key={id} id={id}/> 
                 ))}
             </div>    
         )

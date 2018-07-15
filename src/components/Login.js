@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Icon from './Icon'
-import { iconLib } from '../iconLib'
 
 class Login extends Component {
     render () {
