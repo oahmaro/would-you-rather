@@ -18,9 +18,9 @@ class Dashboard extends Component {
                 <TitleBar />
                 <Toggler />
                 { 
-                    answeredQuestions
+                    unansweredQuestions
                     ? <div className='question-form margin'>
-                        {answeredQuestions.map((id) => (
+                        {unansweredQuestions.map((id) => (
                         <Poll key={id} id={id}/> ))}
                       </div>     
                     : null

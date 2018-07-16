@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 class Account extends Component {
     render () {
-        const { authedUser } = this.props
+        const { authedUser, avatar } = this.props
         return (
             <Fragment>
                 <ul className='nav nav-account'>
@@ -12,8 +12,8 @@ class Account extends Component {
                     </li>
                     <li className='padding-left'>
                         <img 
-                                    src='https://placeimg.com/100/100/any'
-                                    alt={`Avatar of ${authedUser}`}
+                                    src={avatar}
+                                    alt={`Avatar of ${avatar}`}
                                     className='profile-pic scale-down'/>
                     </li>
                     <li className='padding-zero'>
@@ -25,9 +25,11 @@ class Account extends Component {
     }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
+    const avatar = users[authedUser].avatarURL
     return {
-        authedUser
+        authedUser,
+        avatar
     }
 }
 

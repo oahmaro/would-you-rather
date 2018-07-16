@@ -208,4 +208,6 @@ hr {
   color: #808080;
 }
 
-
+li:hover {
+  color: #CCCCCB;
+}
