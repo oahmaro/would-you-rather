@@ -14,7 +14,7 @@ class Account extends Component {
                         <img 
                                     src='https://placeimg.com/100/100/any'
                                     alt={`Avatar of ${authedUser}`}
-                                    className='profile-pic'/>
+                                    className='profile-pic scale-down'/>
                     </li>
                     <li className='padding-zero'>
                         {authedUser}

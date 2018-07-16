@@ -66,8 +66,8 @@ p {
 
 .profile-pic {
   display: inline-block;
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   user-select: none;
 }
@@ -87,8 +87,9 @@ p {
   user-select: none;
   cursor: pointer;
   box-shadow: 0px 1px 25px 2px rgba(0, 0, 0, 0.15); 
-  margin-top: 30px;
-  margin-left: 265px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 300px;
 }
 
 .login-user-select {
@@ -159,6 +160,11 @@ hr {
   color: #CCCCCB
 }
 
+.scale-down {
+  width: 25px !important;
+  height: 25px !important;
+}
+
 .nav {
   display: flex;
   list-style: none;
@@ -192,6 +198,7 @@ hr {
   align-items: center;
   justify-content: center;
   list-style: none;
+  margin-bottom: 20px;
 }
 
 .toggler li {

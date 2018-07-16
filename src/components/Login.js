@@ -7,13 +7,14 @@ class Login extends Component {
         selectedUser: ''
     }
 
-    handleLogin = () => {
+    handleLogin = (e) => {
+        e.preventDefault()
         const { selectedUser } = this.state
         const { setAuthedUser } = this.props
 
         if (selectedUser) {
             setAuthedUser(selectedUser)
-        }
+        } else alert('Select a user!')
 
     }
 
@@ -22,6 +23,11 @@ class Login extends Component {
     render () {
         const { users } = this.props
         const { selectedUser } = this.state
+
+        if (users === undefined) {
+            return null
+        } 
+
         return (
             <div className='form signin-form'>
                 <div className='form-header'>
@@ -32,20 +38,20 @@ class Login extends Component {
                         <label className='sigin-body-p'>Select a user: </label>
                         <div className='signin-body-form'>
                             <img 
-                                src='https://placeimg.com/100/100/any'
-                                alt="Avatar of oahmaro"
+                                src={selectedUser === '' 
+                                ? 'http://www.masscue.org/wp-content/uploads/2017/03/male-no-image.jpg'
+                                : users[selectedUser].avatarURL}
+                                alt={users[selectedUser]}
                                 className='profile-pic'/> 
                             <select 
                                 className='login-user-select' 
-                                value={selectedUser}
                                 onChange={(e) => this.onSelectUser(e.target.value)}>
+                                <option value=""> Select User</option>
                                 {
-                                    users
-                                    ? Object.keys(users).map(user => 
+                                    Object.keys(users).map(user => 
                                         <option className='test' key={user} value={user}>
                                             {user}
                                         </option>)
-                                    : null
                                 }
                             </select>                        
                         </div>
@@ -60,7 +66,7 @@ class Login extends Component {
 
 function mapStateToProps ({ users }) {
     return {
-        ...users
+        users
     }
 }
 
