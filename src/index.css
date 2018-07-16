@@ -157,7 +157,7 @@ hr {
 }
 
 .active {
-  color: #CCCCCB
+  color: #CCCCCB !important;
 }
 
 .scale-down {
@@ -211,3 +211,13 @@ hr {
 li:hover {
   color: #CCCCCB;
 }
+
+.user-name {
+  user-select: none !important;
+  cursor: default !important;
+}
+
+.user-name:hover {
+  color: #808080;
+}
+

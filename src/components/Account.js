@@ -1,22 +1,28 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser'
 
 class Account extends Component {
+    handleLogout = () => {
+        const { setAuthedUser } = this.props
+        setAuthedUser(null)
+    }
+
     render () {
         const { authedUser, avatar } = this.props
         return (
             <Fragment>
                 <ul className='nav nav-account'>
-                    <li>
+                    <li onClick={this.handleLogout}>
                         Logout
                     </li>
-                    <li className='padding-left'>
+                    <li className='user-name'>
                         <img 
                                     src={avatar}
                                     alt={`Avatar of ${avatar}`}
                                     className='profile-pic scale-down'/>
                     </li>
-                    <li className='padding-zero'>
+                    <li className='padding-zero user-name'>
                         {authedUser}
                     </li>
                 </ul>
@@ -33,4 +39,12 @@ function mapStateToProps({ authedUser, users }) {
     }
 }
 
-export default connect(mapStateToProps)(Account)
+function mapDispatchToProps(dispatch) {
+    return {
+        setAuthedUser: (id) => {
+            dispatch(setAuthedUser(id))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Account)

@@ -2,10 +2,13 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import Poll from './Poll'
 import TitleBar from './TitleBar'
-import Toggler from './Toggler'
 import { handleInitialQuestions } from '../actions/shared'
 
 class Dashboard extends Component {
+    state = {
+        selectedTab: 'unanswered'
+    }
+
     componentDidMount () {
         this.props.dispatch(handleInitialQuestions())
     }
@@ -16,11 +19,30 @@ class Dashboard extends Component {
             return (
             <Fragment>
                 <TitleBar />
-                <Toggler />
+                <ul className='toggler'>
+                    <li 
+                        className={ this.state.selectedTab === 'unanswered' ? 'active' : ''}
+                        onClick={() => {this.setState({ selectedTab: 'unanswered'})}}>
+                        Unanswered
+                    </li>
+                    <li 
+                        className={ this.state.selectedTab === 'answered' ? 'active' : ''}
+                        onClick={() => {this.setState({ selectedTab: 'answered'})}}>
+                        Answered
+                    </li>
+                </ul>
                 { 
-                    unansweredQuestions
+                    this.state.selectedTab === 'unanswered' && unansweredQuestions
                     ? <div className='question-form margin'>
                         {unansweredQuestions.map((id) => (
+                        <Poll key={id} id={id}/> ))}
+                      </div>     
+                    : null
+                 }             
+                { 
+                    this.state.selectedTab === 'answered' && answeredQuestions
+                    ? <div className='question-form margin'>
+                        {answeredQuestions.map((id) => (
                         <Poll key={id} id={id}/> ))}
                       </div>     
                     : null
