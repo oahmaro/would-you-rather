@@ -37,7 +37,7 @@ p {
   width: 100%;
   height: 35px;
   border-radius: 15px 15px 0 0;
-  
+  text-decoration: none;
 }
 
 .form-body {
@@ -55,6 +55,7 @@ p {
   transform: translate(-50%, -50%);
   font-size: 14px;
   user-select: none;
+  text-decoration: none;
 }
 
 .sigin-body-p {
@@ -79,8 +80,8 @@ p {
 .sign-in-button {
   color: #FFFFFF;
   background-color: #26AA91;
-  height: 21px;
-  width: 68px;
+  height: 30px;
+  width: 75px;
   font-size: 12px;
   border-radius: 2px;
   border-style: none;
@@ -90,6 +91,10 @@ p {
   margin-top: 10px;
   margin-bottom: 20px;
   margin-left: 300px;
+}
+
+.sign-in-button:hover {
+  background-color: rgb(49, 202, 174);
 }
 
 .login-user-select {
@@ -171,14 +176,16 @@ hr {
   margin: 0;
   padding: 0;
   padding-left: 10px;
+  text-decoration: none;
 }
 
-.nav li {
+.nav-li {
   padding: 10px;
   user-select: none;
   cursor: pointer;
   color: #808080;
   line-height: 1.5;
+  text-decoration: none;
 }
 
 .title-bar {
@@ -221,3 +228,9 @@ li:hover {
   color: #808080;
 }
 
+.poll-form {
+  color: inherit;
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none;
+}

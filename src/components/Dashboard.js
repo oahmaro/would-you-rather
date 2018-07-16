@@ -15,7 +15,6 @@ class Dashboard extends Component {
 
     render () {
         const { answeredQuestions, unansweredQuestions } = this.props
-        console.log('Answered Questions', answeredQuestions)
             return (
             <Fragment>
                 <TitleBar />

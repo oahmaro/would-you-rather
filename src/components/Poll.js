@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class Poll extends Component {
     render () {
@@ -10,9 +11,10 @@ class Poll extends Component {
         }
 
         const { optionOne, optionTwo } = question
+        const { id } = this.props
 
         return (
-            <div className='form margin'>
+            <Link to={`/questions/${id}`} className='form margin poll-form'>
             <div className='form-header'>
                 <p className='form-title'>Would You Rather</p>
             </div>
@@ -25,7 +27,7 @@ class Poll extends Component {
                 </div>
                 <p className='optionTwo'>{optionTwo.text}</p>
             </div>
-        </div>
+        </Link>
         )
     }
 }
@@ -36,6 +38,7 @@ function mapStateToProps ({authedUser, questions}, { id }) {
     return {
         authedUser,
         question,
+        id,
     }
 }
 
