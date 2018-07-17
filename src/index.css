@@ -237,11 +237,9 @@ hr {
 }
 
 .poll-details-form {
-  position: absolute;
-  margin: 0;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
 }
 
 .checkmark {
@@ -367,4 +365,42 @@ color: #cccccb;
 .user-detail-ul {
   padding: 15px !important;
   margin: 0px !important;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.fix-answered-li {
+  box-sizing: border-box;
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+  user-select: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.answered {
+  color: #25baa2 ;
+}
+
+.padding-right {
+  padding-right: 10px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.vote-result {
+  display: block;
+  font-size: 13px;
+  color: #808080;
+  padding: 10px;
 }
