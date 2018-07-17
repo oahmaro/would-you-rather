@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import TitleBar from './TitleBar'
+import { formatDate } from '../utils/api'
 
 class PollDetails extends Component {
     render () {
-        const { optionOne, optionTwo } = this.props.question
-        const { avatar, authedUser } = this.props
+        const { avatar, timestamp, username, optionOne, optionTwo } = this.props
         return (
             <Fragment>
                 <TitleBar />
@@ -16,13 +16,13 @@ class PollDetails extends Component {
                     <div className='form-body no-bottom-round'>
                         <div className='radio_container-div'>
                             <label className='radio_container'>
-                                <span className='input_radio'>{optionOne.text}</span>
+                                <span className='input_radio'>{optionOne}</span>
                                 <input className='hide' type="radio" defaultChecked='checked' name='select_option'/>
                                 <span className='checkmark'></span>
                             </label>
 
                             <label className='radio_container'>
-                                <span className='input_radio'>{optionTwo.text}</span>
+                                <span className='input_radio'>{optionTwo}</span>
                                 <input className='hide' type="radio" name='select_option'/>
                                 <span className='checkmark'></span>
                             </label>
@@ -37,10 +37,10 @@ class PollDetails extends Component {
                                         src={avatar}
                                         alt={'`Avatar of ${avatar}`'}
                                         className='scale-down-mid profile-pic vertical-align'/>
-                                    <span className="padding-left">{authedUser}</span>
+                                    <span className="padding-left">{username}</span>
                                 </li>
                                 <li className='time-stamp user-info-li block'>
-                                    h:mm:PM | month/day/year
+                                    { timestamp }
                                 </li>
                             </ul>
                     </div>
@@ -52,14 +52,19 @@ class PollDetails extends Component {
 
 function mapStateToProps ({authedUser, questions, users}, props) {
     const { question_id } = props.match.params
-    const avatar = users[authedUser].avatarURL
     const question = questions[question_id]
+    const avatar = users[question.author].avatarURL
+    const username = users[question.author].id
+    const timestamp = formatDate (question.timestamp)
+    const optionOne = question.optionOne.text
+    const optionTwo = question.optionTwo.text
 
     return {
         avatar,
-        question_id,
-        question,
-        authedUser,
+        username,
+        timestamp,
+        optionOne,
+        optionTwo,
     }
 }
 
