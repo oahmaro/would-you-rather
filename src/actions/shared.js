@@ -5,8 +5,6 @@ import { getInitialUsers } from '../utils/api'
 import { getInitialQuestions } from '../utils/api'
 import { saveQuestionAnswer } from '../utils/api'
 
-const AUTHED_ID = null;
-
 export function handleInitialQuestions () {
     return (dispatch) => {
         return getInitialQuestions()
@@ -16,7 +14,7 @@ export function handleInitialQuestions () {
     }
 }
 
-export function handleInitialUsers () {
+export function handleInitialUsers (AUTHED_ID) {
     return (dispatch) => {
       return getInitialUsers()
         .then((users) => {
@@ -26,13 +24,14 @@ export function handleInitialUsers () {
     }
   }
 
-export function handleSaveQuestionAnswer (authedUser, qid, answer) {
+export function handleSaveQuestionAnswer (qid, answer) {
     return (dispatch, getState) => {
-        const { users, questions } = getState()
-        return saveQuestionAnswer(authedUser, qid, answer)
+        const { authedUser, users, questions } = getState()
+        console.log('REALLY IMPORTANT!', authedUser)
+        return saveQuestionAnswer({authedUser, qid, answer})
             .then(() => {
-                dispatch(receiveUsers(users))
-                dispatch(receiveQuestions(questions))
+                dispatch(handleInitialQuestions())
+                dispatch(handleInitialUsers(authedUser))
             })  
     }
 }

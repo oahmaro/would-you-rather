@@ -8,7 +8,8 @@ import PollDetails from './PollDetails'
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch((handleInitialUsers()))
+    const AUTHED_ID = null;
+    this.props.dispatch((handleInitialUsers(AUTHED_ID)))
   }
 
   render() {
