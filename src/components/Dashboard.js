@@ -14,7 +14,7 @@ class Dashboard extends Component {
     }
 
     render () {
-        const { answeredPolls, unansweredPolls } = this.props
+        const { answeredPolls, unansweredPolls,loadingBar } = this.props
             return (
             <Fragment>
                 <TitleBar />
@@ -30,28 +30,37 @@ class Dashboard extends Component {
                         Answered
                     </li>
                 </ul>
-                { 
-                    this.state.selectedTab === 'unanswered' && unansweredPolls
-                    ? <div className='question-form margin'>
-                        {unansweredPolls.map((id) => (
-                        <Poll key={id} id={id}/> ))}
-                      </div>     
+                {
+                    !loadingBar.default && Object.keys(unansweredPolls).length === 0 && this.state.selectedTab === 'unanswered'
+                    ? <p>no results</p>
                     : null
-                 }             
-                { 
-                    this.state.selectedTab === 'answered' && answeredPolls
-                    ? <div className='question-form margin'>
-                        {answeredPolls.map((id) => (
-                        <Poll key={id} id={id}/> ))}
-                      </div>     
+                }
+                {
+                    !loadingBar.default && Object.keys(answeredPolls).length === 0 && this.state.selectedTab === 'answered'
+                    ? <p>no results</p>
                     : null
+                }
+                { 
+                    loadingBar.default
+                    ? <p>Loading ...</p>
+                    : this.state.selectedTab === 'unanswered' && Object.keys(unansweredPolls).length !== 0
+                        ? <div className='question-form margin'>
+                            {unansweredPolls.map((id) => (
+                            <Poll key={id} id={id}/> ))}
+                        </div>     
+                        : this.state.selectedTab === 'answered' && Object.keys(answeredPolls).length !== 0
+                        ? <div className='question-form margin'>
+                            {answeredPolls.map((id) => (
+                            <Poll key={id} id={id}/> ))}
+                        </div>     
+                        : null
                  }             
             </Fragment>
             )
     }
 }
 
-function mapStateToProps ({ polls, authedUser, users  }) {
+function mapStateToProps ({ polls, authedUser, users, loadingBar }) {
     const user = users[authedUser]
 
     const answeredPolls = Object.keys(polls).length !== 0
@@ -68,6 +77,7 @@ function mapStateToProps ({ polls, authedUser, users  }) {
     return {
         answeredPolls,
         unansweredPolls,
+        loadingBar,
     }
 }
 
