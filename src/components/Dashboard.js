@@ -71,7 +71,7 @@ function mapStateToProps ({ polls, authedUser, users, loadingBar }) {
     const unansweredPolls = Object.keys(polls).length !== 0
         ? Object.keys(polls)
             .filter(pollID => !answeredPolls.includes(pollID))
-            .sort((a,b) => polls[b].timesyamp - polls[a].timestamp)
+            .sort((a,b) => polls[b].timestamp - polls[a].timestamp)
         : []
 
     return {

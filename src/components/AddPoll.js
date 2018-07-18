@@ -1,8 +1,32 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import TitleBar from './TitleBar'
+import { handleAddPoll } from '../actions/shared'
 
 class AddPoll extends Component {
+    state = {
+        optionOne: '',
+        optionTwo: '',
+    }
+    
+    handleOptionOne = (e) => {
+        this.setState({
+            optionOne: e.target.value
+        })
+    }
+
+    handleOptionTwo = (e) => {
+        this.setState({
+            optionTwo: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const { optionOne, optionTwo} = this.state
+        this.props.addPoll(optionOne, optionTwo)
+    }
+    
     render () {
         return (
             <Fragment>
@@ -12,7 +36,7 @@ class AddPoll extends Component {
                         <p className='form-title'>Would You Rather</p>
                     </div>
                 {
-                    <form id='addPoll-form' className='form-body'>
+                    <form onSubmit={this.handleSubmit} id='addPoll-form' className='form-body'>
                         <div className='input-text-container'>
                             <textarea  
                                 className='block input-text' 
@@ -20,6 +44,7 @@ class AddPoll extends Component {
                                 placeholder='Option One'
                                 required
                                 spellCheck="false"
+                                onChange={this.handleOptionOne}
                                 />
 
                             <textarea  
@@ -28,6 +53,7 @@ class AddPoll extends Component {
                                 placeholder='Option Two'
                                 required
                                 spellCheck="false"
+                                onChange={this.handleOptionTwo}
                                 />
                         </div>
 
@@ -40,10 +66,12 @@ class AddPoll extends Component {
     }
 }
 
-function mapStateToProps () {
+function mapDispatchToProps (dispatch) {
     return {
-
+        addPoll: (optionOne, optionTwo) => {
+            dispatch(handleAddPoll(optionOne, optionTwo))
+        }
     }
 }
 
-export default connect(mapStateToProps)(AddPoll)
+export default connect(null, mapDispatchToProps)(AddPoll)

@@ -1,10 +1,11 @@
-import { receiveUsers, saveUserAnswer } from '../actions/users'
-import { receivePolls, savePollAnswer } from '../actions/polls'
+import { receiveUsers, saveUserAnswer, addUserPoll } from '../actions/users'
+import { receivePolls, savePollAnswer, addPoll } from '../actions/polls'
 import { setAuthedUser } from '../actions/authedUser'
 import { getInitialUsers } from '../utils/api'
 import { getInitialPolls } from '../utils/api'
 import { savePollAnswerAPI } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
+import { savePollAPI } from '../utils/api'
 
 export function handleInitialPolls () {
     return (dispatch) => {
@@ -39,5 +40,19 @@ export function handleSavePollAnswer (qid, answer) {
                 dispatch(saveUserAnswer(authedUser, qid, answer))
                 dispatch(hideLoading())
             })  
+    }
+}
+
+export function handleAddPoll (optionOneText, optionTwoText) {
+    return (dispatch, getState) => {
+        const { authedUser } = getState()
+        const author = authedUser
+        dispatch(showLoading())
+        return savePollAPI({optionOneText, optionTwoText, author})
+            .then((poll) => {
+                dispatch(addPoll(poll))
+                dispatch(addUserPoll(authedUser, poll.id))
+                dispatch(hideLoading())
+            })
     }
 }

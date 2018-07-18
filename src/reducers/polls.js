@@ -1,4 +1,4 @@
-import { RECEIVE_POLLS, SAVE_POLL_ANSWER } from '../actions/polls'
+import { RECEIVE_POLLS, SAVE_POLL_ANSWER, ADD_POLL } from '../actions/polls'
 
 export default function questions(state= {}, action) {
     switch(action.type) {
@@ -18,6 +18,11 @@ export default function questions(state= {}, action) {
                 votes: state[qid][answer].votes.concat([authedUser])
               }
             }
+          }
+        case ADD_POLL: 
+          return {
+            ...state,
+            [action.poll.id]: action.poll
           }
         default:
             return state
