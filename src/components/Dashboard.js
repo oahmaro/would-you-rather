@@ -20,12 +20,12 @@ class Dashboard extends Component {
                 <TitleBar />
                 <ul className='toggler'>
                     <li 
-                        className={ this.state.selectedTab === 'unanswered' ? 'active' : ''}
+                        className={ this.state.selectedTab === 'unanswered' ? 'active' : 'li-hover'}
                         onClick={() => {this.setState({ selectedTab: 'unanswered'})}}>
                         Unanswered
                     </li>
                     <li 
-                        className={ this.state.selectedTab === 'answered' ? 'active' : ''}
+                        className={ this.state.selectedTab === 'answered' ? 'active' : 'li-hover'}
                         onClick={() => {this.setState({ selectedTab: 'answered'})}}>
                         Answered
                     </li>

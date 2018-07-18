@@ -29,6 +29,7 @@ p {
 
 .question-form {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .form-header {
@@ -193,11 +194,15 @@ hr {
   text-decoration: none;
 }
 
+.nav-li:hover {
+  color: #CCCCCB;
+}
+
 .title-bar {
   display: flex;
   background-color: #24292E;
   margin: 0;
-  height: 40px;
+  height: 44px;
 }
 
 .nav-account {
@@ -403,4 +408,8 @@ color: #cccccb;
   font-size: 13px;
   color: #808080;
   padding: 10px;
+}
+
+.li-hover:hover {
+  color: #CCCCCB;
 }
