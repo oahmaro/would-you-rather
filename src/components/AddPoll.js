@@ -6,7 +6,7 @@ import { handleAddPoll } from '../actions/shared'
 class AddPoll extends Component {
     state = {
         optionOne: '',
-        optionTwo: '',
+        optionTwo: ''
     }
     
     handleOptionOne = (e) => {
@@ -26,12 +26,12 @@ class AddPoll extends Component {
         const { optionOne, optionTwo} = this.state
         this.props.addPoll(optionOne, optionTwo)
     }
-    
+
     render () {
         return (
             <Fragment>
                 <TitleBar />
-`                <div className='form margin poll-details-form'>
+                <div className='form margin poll-details-form'>
                     <div className='form-header'>
                         <p className='form-title'>Would You Rather</p>
                     </div>
@@ -60,7 +60,7 @@ class AddPoll extends Component {
                         <button className='button'>Submit</button>
                     </form>
                 }
-                </div>`
+                </div>
             </Fragment>
         )
     }

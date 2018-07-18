@@ -238,6 +238,7 @@ hr {
   color: inherit;
   user-select: none;
   cursor: pointer;
+  height: 100%;
   text-decoration: none;
 }
 
@@ -458,4 +459,8 @@ color: #cccccb;
 
 .notification {
   box-shadow: none !important;
+}
+
+.poll-form:hover {
+  border: 1px solid #25baa2;
 }
