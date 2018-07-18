@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { handleInitialUsers } from '../actions/shared'
 import Dashboard from './Dashboard'
 import PollDetails from './PollDetails'
+import LoadingBar from 'react-redux-loading'
+import AddPoll from './AddPoll'
 
 class App extends Component {
   componentDidMount() {
@@ -16,13 +18,14 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
+          <LoadingBar style={{ backgroundColor: '#25baa2'}}/>
           { 
             this.props.authedUser === null
             ? <Route path='/' exact component={Login} />
             : <Fragment>
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/questions/:question_id' component={PollDetails} />
-                <Route path='/add' exact component={null} />
+                <Route path='/add' exact component={AddPoll} />
                 <Route path='/leaderboard' exact component={null} />
               </Fragment>
           }

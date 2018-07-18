@@ -413,3 +413,28 @@ color: #cccccb;
 .li-hover:hover {
   color: #CCCCCB;
 }
+
+.input-text {
+  font-family: roboto;
+  box-sizing: border-box;
+  color: #cccccb;
+  width: 100%;
+  border: none;
+  background-color: #2A2F33;
+  border-bottom: 1px solid #4D4D4E;
+  padding: 10px;
+  margin-right: 0px;
+  transition: 0.2s linear;
+  padding-top: 50px;
+}
+
+.input-text:focus {
+  outline: none;
+  border-bottom: 1px solid #25baa2;
+  transition: 0.2s linear
+}
+
+.input-text-container {
+  padding: 30px;
+  padding-top: 10px;
+}
