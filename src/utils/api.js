@@ -12,17 +12,17 @@ export function getInitialUsers() {
         }))
 }
 
-export function getInitialQuestions() {
+export function getInitialPolls() {
     return _getQuestions()
         .then(questions => ({
             questions 
         }))
 }
 
-export function saveQuestionAPI (info) {
+export function savePollAPI (info) {
     return _saveQuestion(info)
 }
 
-export function saveQuestionAnswerAPI (info) {
+export function savePollAnswerAPI (info) {
     return _saveQuestionAnswer(info)
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import TitleBar from './TitleBar'
 import { formatDate } from '../utils/helpers'
 import FaCheck from 'react-icons/lib/fa/check'
-import { handleSaveQuestionAnswer } from '../actions/shared'
+import { handleSavePollAnswer } from '../actions/shared'
 
 class PollDetails extends Component {
     state = {
@@ -19,18 +19,18 @@ class PollDetails extends Component {
     submitAnswer = (e) => {
         e.preventDefault()
 
-        const { saveQuestionAnswer } = this.props
+        const { savePollAnswer } = this.props
         const answer = this.state.selectedOption
 
         // i have succesfully got the answer text now check the _data file to see what is the expected arguments
 
-        saveQuestionAnswer(answer)
+        savePollAnswer(answer)
     }
 
     render () {
-        const { question, authorAvatar, timestamp, author, optionOne, optionTwo, answered, isOneAnswered, isTwoAnswered } = this.props
-        const optionOneVotes = question.optionOne.votes.length
-        const optionTwoVotes = question.optionTwo.votes.length
+        const { poll, authorAvatar, timestamp, author, optionOne, optionTwo, answered, isOneAnswered, isTwoAnswered } = this.props
+        const optionOneVotes = poll.optionOne.votes.length
+        const optionTwoVotes = poll.optionTwo.votes.length
         const optionOnePercentage = (optionOneVotes / (optionOneVotes + optionTwoVotes) * 100).toFixed(2)
         const optionTwoPercentage = (optionTwoVotes / (optionOneVotes + optionTwoVotes) * 100).toFixed(2)
         return (
@@ -114,16 +114,16 @@ class PollDetails extends Component {
     }
 }
 
-function mapStateToProps ({authedUser, questions, users}, props) {
+function mapStateToProps ({authedUser, polls, users}, props) {
     const { question_id } = props.match.params
-    const question = questions[question_id]
-    const authorAvatar = users[question.author].avatarURL
-    const author = users[question.author].id
-    const timestamp = formatDate (question.timestamp)
-    const optionOne = question.optionOne.text
-    const optionTwo = question.optionTwo.text
-    const isOneAnswered = question.optionOne.votes.includes(authedUser)
-    const isTwoAnswered = question.optionTwo.votes.includes(authedUser)
+    const poll = polls[question_id]
+    const authorAvatar = users[poll.author].avatarURL
+    const author = users[poll.author].id
+    const timestamp = formatDate (poll.timestamp)
+    const optionOne = poll.optionOne.text
+    const optionTwo = poll.optionTwo.text
+    const isOneAnswered = poll.optionOne.votes.includes(authedUser)
+    const isTwoAnswered = poll.optionTwo.votes.includes(authedUser)
     const answered = isOneAnswered || isTwoAnswered
 
     return {
@@ -135,9 +135,9 @@ function mapStateToProps ({authedUser, questions, users}, props) {
         answered,
         isOneAnswered,
         isTwoAnswered,
-        question,
+        poll,
         users,
-        questions,
+        polls,
         authedUser,
         question_id,
     }
@@ -146,8 +146,8 @@ function mapStateToProps ({authedUser, questions, users}, props) {
 function mapDispatchToProps (dispatch, props) {
     const { question_id } = props.match.params
     return {
-        saveQuestionAnswer : (answer) => {
-            dispatch(handleSaveQuestionAnswer(question_id, answer))
+        savePollAnswer : (answer) => {
+            dispatch(handleSavePollAnswer(question_id, answer))
         }
     }
 }

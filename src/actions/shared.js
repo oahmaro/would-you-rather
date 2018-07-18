@@ -1,17 +1,17 @@
 import { receiveUsers, saveUserAnswer } from '../actions/users'
-import { receiveQuestions, saveQuestionAnswer } from '../actions/questions'
+import { receivePolls, savePollAnswer } from '../actions/polls'
 import { setAuthedUser } from '../actions/authedUser'
 import { getInitialUsers } from '../utils/api'
-import { getInitialQuestions } from '../utils/api'
-import { saveQuestionAnswerAPI } from '../utils/api'
+import { getInitialPolls } from '../utils/api'
+import { savePollAnswerAPI } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
-export function handleInitialQuestions () {
+export function handleInitialPolls () {
     return (dispatch) => {
         dispatch(showLoading())
-        return getInitialQuestions()
+        return getInitialPolls()
             .then((questions) => {
-                dispatch(receiveQuestions(questions))
+                dispatch(receivePolls(questions))
                 dispatch(hideLoading())
             })
     }
@@ -29,13 +29,13 @@ export function handleInitialUsers (AUTHED_ID) {
     }
   }
 
-export function handleSaveQuestionAnswer (qid, answer) {
+export function handleSavePollAnswer (qid, answer) {
     return (dispatch, getState) => {
         const { authedUser } = getState()
         dispatch(showLoading())
-        return saveQuestionAnswerAPI({authedUser, qid, answer})
+        return savePollAnswerAPI({authedUser, qid, answer})
             .then(() => {
-                dispatch(saveQuestionAnswer(authedUser, qid, answer))
+                dispatch(savePollAnswer(authedUser, qid, answer))
                 dispatch(saveUserAnswer(authedUser, qid, answer))
                 dispatch(hideLoading())
             })  

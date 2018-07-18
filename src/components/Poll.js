@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 
 class Poll extends Component {
     render () {
-        const { question } = this.props
+        const { poll } = this.props
 
-        if (question === null ) {
-            return <p>This question doesn't exist</p>
+        if (poll === null ) {
+            return <p>This poll doesn't exist</p>
         }
 
-        const { optionOne, optionTwo } = question
+        const { optionOne, optionTwo } = poll
         const { id } = this.props
 
         return (
@@ -32,12 +32,12 @@ class Poll extends Component {
     }
 }
 
-function mapStateToProps ({authedUser, questions}, { id }) {
-    const question = questions[id]
+function mapStateToProps ({authedUser, polls}, { id }) {
+    const poll = polls[id]
 
     return {
         authedUser,
-        question,
+        poll,
         id,
     }
 }
