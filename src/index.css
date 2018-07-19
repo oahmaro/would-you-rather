@@ -472,6 +472,7 @@ color: #cccccb;
   left: 50%;
   transform: translate(-50%, -50%);
   border-spacing: 0px;
+  user-select: none;
 }
 
 td {
