@@ -2,11 +2,13 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import TitleBar from './TitleBar'
 import { handleAddPoll } from '../actions/shared'
+import { Redirect } from 'react-router-dom'
 
 class AddPoll extends Component {
     state = {
         optionOne: '',
-        optionTwo: ''
+        optionTwo: '',
+        toHome: false,
     }
     
     handleOptionOne = (e) => {
@@ -25,9 +27,18 @@ class AddPoll extends Component {
         e.preventDefault()
         const { optionOne, optionTwo} = this.state
         this.props.addPoll(optionOne, optionTwo)
+        this.setState(() => ({
+            toHome: true
+        }))
     }
 
     render () {
+        const { toHome } = this.state
+
+        if (toHome === true) {
+            return <Redirect to='/' />
+        }
+
         return (
             <Fragment>
                 <TitleBar />

@@ -384,8 +384,8 @@ color: #cccccb;
 .fix-answered-li {
   box-sizing: border-box;
   padding-left: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 35px;
+  padding-bottom: 5px;
   padding-right: 10px;
   user-select: none;
   text-decoration: none;
@@ -507,4 +507,23 @@ tr, th {
 
 .fix-nav li {
   padding-left: 0;
+}
+
+.center {
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.padding-top {
+ padding-top: 10px;
+}
+
+.click-here {
+  color: #25baa2 !important;
+}
+
+.padding-bottom {
+  padding-bottom: 20px;
 }

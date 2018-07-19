@@ -57,7 +57,7 @@ class PollDetails extends Component {
                                         <hr/>
                                     </div>
                                 </li>
-                                <li className='fix-answered-li full-width'>
+                                <li className='padding-bottom fix-answered-li full-width'>
                                     <span className={isTwoAnswered ? 'answered' : ''}>{optionTwo}</span>
                                     {isTwoAnswered ? <FaCheck className='padding-left answered'/> : null}
                                     <span className='vote-result'>{`${optionTwoVotes} vote(s) | ${optionTwoPercentage}%`}</span>

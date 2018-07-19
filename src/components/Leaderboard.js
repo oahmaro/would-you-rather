@@ -5,7 +5,6 @@ import TitleBar from './TitleBar'
 class Leaderboard extends Component {
     render () {
         const { users, data } = this.props
-        console.log('IMPORTANT', data)
         return (
             <Fragment>
                 <TitleBar />
