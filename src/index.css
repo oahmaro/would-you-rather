@@ -464,3 +464,46 @@ color: #cccccb;
 .poll-form:hover {
   border: 1px solid #25baa2;
 }
+
+.table {
+  position: absolute;
+  margin: 0;
+  top: 250px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-spacing: 0px;
+}
+
+td {
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #4D4D4E;
+  vertical-align: center;
+}
+
+th {
+  text-align: left;
+  padding-right: 100px;
+  padding-left: 0;
+  padding-bottom: 15px;
+}
+
+tr, th {
+  border-bottom: 1px solid #999999;
+}
+
+.padding-right {
+  padding-right: 200px;
+}
+
+.fix-nav {
+  padding: 0;
+  margin: 0;
+  text-align:left;
+}
+
+.fix-nav li {
+  padding-left: 0;
+}
