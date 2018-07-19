@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import { withRouter } from 'react-router-dom'
 
 class Account extends Component {
     handleLogout = () => {
-        const { setAuthedUser } = this.props
+        const { setAuthedUser, history } = this.props
         setAuthedUser(null)
+        history.push('/')
     }
 
     render () {
@@ -47,4 +49,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Account)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Account))
