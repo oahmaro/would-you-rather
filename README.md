@@ -11,5 +11,5 @@ To get Started:
 * install all project dependencies with `npm install`
 * start the server with `npm start`
 
-#### Possible Search Terms
+#### Start Playing
 Simply select a user and then login to start playing the game.
