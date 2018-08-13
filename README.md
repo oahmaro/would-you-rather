@@ -6,7 +6,7 @@ In this app, users will be able to answer questions, see which questions they ha
 ## Quickstart
 #### Install
 To get Started:
-* clone the project from: [Create React App](https://github.com/oahmaro/would-you-rather.git)
+* clone the project from: [Here](https://github.com/oahmaro/would-you-rather.git)
 * change to the project directory `cd would-you-rather`
 * install all project dependencies with `npm install`
 * start the server with `npm start`
